@@ -1,6 +1,6 @@
  My Epic lazy.nvim Config
 ==========================
-A fairly simple nvim config that I use daily.
+A fairly simple nvim config that I use daily. 
 
  Setup
 -------
@@ -8,6 +8,13 @@ A fairly simple nvim config that I use daily.
 2. Download the latest release tar.gz
 3. Move the nvim directory to ~/.config/
 4. Run Nvim and enjoy!
+
+&nbsp;
+
+ After Installation
+--------------------
+1. Use the MasonInstall command to add any lsp's you may need
+2. Install a [patched font](https://www.nerdfonts.com/font-downloads) so the NvimTree icons work
 
 &nbsp;
 
@@ -19,7 +26,7 @@ All bindings can be changed in their config files. The following are only the bi
 
 &nbsp;
 
-### [NvimTree](https://github.com/nvim-tree/nvim-tree.lua)
+### [NvimTree](https://github.com/nvim-tree/nvim-tree.lua) (Strongly recommend a [patched font](https://www.nerdfonts.com/font-downloads) to properly display icons)
 | Command | Description |
 | :-----: | :---------- |
 | _-e      | Toggles NvimTree open and closed |
