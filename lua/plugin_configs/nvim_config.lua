@@ -1,6 +1,9 @@
 local opt = vim.opt
 local indent = 4
+local map = vim.keymap.set
+local au = vim.api.nvim_create_autocmd
 
+-- OPTIONS
 -- disable netrw (for nvim-tree)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -25,8 +28,8 @@ opt.cursorline = true -- highlight the current line (big diff)
 opt.cmdheight = 0 -- only shows commandline when typing (looks good)
 opt.mouse = "a" -- allow the mouse to be used in neovim
 opt.relativenumber = true -- set relatively numbered lines
-opt.scrolloff = 15 -- Keeps cursor from top and bottom
-opt.sidescrolloff = 3 -- Keeps cursor from edges
+opt.scrolloff = 15 -- Keeps cursor 15 lines from top and bottom
+opt.sidescrolloff = 3 -- Keeps cursor 3 chars from edges
 opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
 opt.splitbelow = true -- open new split below
 opt.splitright = true -- open new split to the right
@@ -36,11 +39,9 @@ opt.wrap = false -- display a long line
 opt.backup = false -- create a backup file
 opt.swapfile = false -- creates a swapfile
 opt.writebackup = false -- if a file is being edited by another program it is not allowed to be edited
-
 opt.showmode = false
 
--- perfomance
--- remember N lines in history
+-- performance
 opt.history = 100 -- keep 100 lines of history
 opt.redrawtime = 1500
 opt.timeoutlen = 250 -- time to wait for a mapped sequence to complete (in milliseconds)
@@ -51,7 +52,7 @@ opt.updatetime = 100 -- signify default updatetime 4000ms is not good for async 
 opt.termguicolors = true -- enable 24-bit RGB colors
 
 -- persistent undo
--- Don"t forget to create folder $HOME/.local/share/nvim/undo
+-- Don't forget to create folder $HOME/.local/share/nvim/undo
 local undodir = vim.fn.stdpath("data") .. "/undo"
 opt.undofile = true -- enable persistent undo
 opt.undodir = undodir
@@ -62,3 +63,15 @@ opt.undoreload = 10000
 opt.foldmethod = "marker"
 opt.foldlevel = 99
 
+-- file search
+opt.path:append("**")
+
+-- strip trailing whitespace on save
+au("BufWritePre", {
+  pattern = "*",
+  callback = function()
+    local pos = vim.api.nvim_win_get_cursor(0)
+    vim.cmd([[%s/\s\+$//e]])
+    vim.api.nvim_win_set_cursor(0, pos)
+  end,
+})
