@@ -7,7 +7,7 @@ A fairly simple nvim config that I use daily.
 
 ---
 
-## 🚀 Setup
+## Setup
 
 1. [Install Neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
 2. Download the latest release tar.gz
@@ -16,14 +16,14 @@ A fairly simple nvim config that I use daily.
 
 &nbsp;
 
-## ✅ After Installation
+## After Installation
 
 1. Use the `MasonInstall` command to add any LSPs you may need
 2. Install a [patched font](https://www.nerdfonts.com/font-downloads) so the NvimTree icons work
 
 ---
 
-## ⌨️ Custom Bindings
+## Custom Bindings
 
 All bindings can be changed in their config files. The following are only the binds I modified. Refer to the respective documentation for the others.
 
